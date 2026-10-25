@@ -1,0 +1,59 @@
+{
+  "mcpServers": {
+    "isaac-newton-ai": {
+      "command": "cargo",
+      "args": [
+        "run",
+        "--release",
+        "--quiet"
+      ],
+      "env": {
+        "RUST_LOG": "info",
+        "TITAN_PROTOCOL": "NEWTON",
+        "FIPS_203_LEVEL": "ML-KEM-768",
+        "FIPS_204_LEVEL": "ML-DSA-65"
+      },
+      "tools": [
+        {
+          "name": "calculate_orbital_fluxions",
+          "description": "Solves planetary n-body gravitational perturbation vectors via fluxional calculus differential equations",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "body_masses": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "initial_positions": {
+                "type": "array"
+              }
+            },
+            "required": [
+              "body_masses"
+            ]
+          }
+        },
+        {
+          "name": "analyze_chromatic_dispersion",
+          "description": "Computes prism refraction indices and corpuscular light decomposition across optical wavelengths",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "incident_angle_deg": {
+                "type": "number"
+              },
+              "refractive_index": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "incident_angle_deg"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
